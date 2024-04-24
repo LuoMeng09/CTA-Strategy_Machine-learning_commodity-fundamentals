@@ -18,9 +18,9 @@ def RandomForest_param_select(x_train,y_train,param_grid_rf):
     rf=RandomForestClassifier(random_state=1234)
     rf_grid_search =GridSearchCV(rf,param_grid=param_grid_rf,cv=5,verbose=2)   
     rf_grid_search.fit(x_train,y_train)
-    score_rf.loc['best_estimator'] = str( globals()['rf_grid_search_equity'].best_estimator_)
-    score_rf.loc['best_score'] =  globals()['rf_grid_search_equity'].best_score_
-    score_rf.loc['best_index'] =  globals()['rf_grid_search_equity'].best_index_
+    score_rf.loc['best_estimator'] = str(rf_grid_search.best_estimator_)
+    score_rf.loc['best_score'] =  rf_grid_search.best_score_
+    score_rf.loc['best_index'] =  rf_grid_search.best_index_
     return score_rf
 
 
